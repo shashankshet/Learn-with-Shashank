@@ -1,4 +1,4 @@
-# Welcome to Learn with Shashank
+# Welcome to **Learn with Shashank**
 Welcome to **Learn with Shashank** — a space where I document my journey of continuous learning and share insights on various topics related to software development and beyond.
 
 This is not just a personal archive but an open resource available for anyone eager to learn and explore new concepts. Whether you're a fellow developer, a tech enthusiast, or someone curious about the ever-evolving world of software, you'll find something here that piques your interest!
