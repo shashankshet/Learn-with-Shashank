@@ -311,6 +311,84 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Key Principles of Clean Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meaningful-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meaningful Names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatting:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objects-and-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objects and Data Structures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -320,14 +398,53 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Case Studies: Cleaning Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#advanced-topics" class="md-nav__link">
     <span class="md-ellipsis">
       Advanced Topics
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boundaries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concurrency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -374,14 +491,14 @@
 
 
 <h1 id="clean-code">Clean Code</h1>
-<h3 id="introduction">Introduction</h3>
+<h2 id="introduction">Introduction</h2>
 <p>"Clean Code" is a seminal book in software engineering that emphasizes the importance of writing code that is not only functional but also maintainable, readable, and efficient. Robert C. Martin, also known as "Uncle Bob," provides principles, practices, and case studies to teach developers how to write "clean" code. The book is divided into three parts:</p>
 <ol>
 <li>Principles, patterns, and best practices.</li>
 <li>Case studies for cleaning up code.</li>
 <li>A list of heuristics for writing clean code.</li>
 </ol>
-<h3 id="what-is-clean-code">What is Clean Code?</h3>
+<h2 id="what-is-clean-code">What is Clean Code?</h2>
 <p>Clean code is described as simple, direct, and elegant. Martin highlights that clean code:</p>
 <ul>
 <li>Reads like prose: It should be understandable without additional explanations.</li>
@@ -390,14 +507,14 @@
 <li>Is testable and reliable: Bugs should be easy to spot an</li>
 </ul>
 <p>He compares clean code to well-written essays—structured, concise, and free from unnecessary details.</p>
-<h3 id="key-principles-of-clean-code">Key Principles of Clean Code</h3>
-<ol>
-<li>Meaningful Names</li>
+<h2 id="key-principles-of-clean-code">Key Principles of Clean Code</h2>
+<h3 id="meaningful-names">Meaningful Names</h3>
+<ul>
 <li>Purposeful: Variable, function, and class names should reflect their purpose and behavior.</li>
 <li>Avoid abbreviations: Full words are better for readability.</li>
 <li>Pronounceable names: Make code easier to discuss with teammates.</li>
 <li>Consistency: Use consistent naming conventions across the codebase.</li>
-</ol>
+</ul>
 <p>Bad Example:</p>
 <pre><code class="language-cpp">int d; // What does 'd' represent?
 </code></pre>
@@ -405,10 +522,8 @@
 <pre><code class="language-cpp">int daysSinceLastUpdate;
 
 </code></pre>
-<ol>
-<li>
-<p>Functions</p>
-</li>
+<h3 id="functions">Functions</h3>
+<ul>
 <li>
 <p>Functions are the building blocks of any codebase. To write clean functions:</p>
 </li>
@@ -418,27 +533,21 @@
 <li>Single Responsibility: Each function should do one thing and do it well.</li>
 <li>Avoid side effects: Functions should not alter global states.</li>
 <li>Descriptive names: Function names should clearly state their purpose.</li>
-</ol>
+</ul>
 <p>Bad Example:</p>
 <pre><code class="language-cpp">void process(int a, int b); // Vague purpose
 </code></pre>
 <p>Good Example:</p>
 <pre><code class="language-cpp">void processOrder(int orderId, int customerId);
 </code></pre>
-<ol>
-<li>
-<p>Comments</p>
-</li>
-<li>
-<p>Martin discourages excessive commenting because comments can become outdated as code changes. Instead:</p>
-</li>
-<li>
-<p>Write self-explanatory code that doesn’t need comments.</p>
-</li>
+<h3 id="comments">Comments</h3>
+<ul>
+<li>Martin discourages excessive commenting because comments can become outdated as code changes. Instead:</li>
+<li>Write self-explanatory code that doesn’t need comments.</li>
 <li>Use comments sparingly for clarifications or highlighting important decisions.</li>
 <li>Avoid redundant or misleading comments.
 Bad Example:</li>
-</ol>
+</ul>
 <pre><code class="language-cpp">// Increment i by 1
 i = i + 1;
 </code></pre>
@@ -446,17 +555,13 @@ i = i + 1;
 <pre><code class="language-cpp">// Use this method for backward compatibility with version 1.0
 updateLegacyData();
 </code></pre>
-<ol>
-<li>
-<p>Error Handling</p>
-</li>
-<li>
-<p>Don’t ignore exceptions: Handle errors where they occur.</p>
-</li>
+<h3 id="error-handling">Error Handling</h3>
+<ul>
+<li>Don’t ignore exceptions: Handle errors where they occur.</li>
 <li>Use custom exceptions: Give specific context to errors.</li>
 <li>Fail fast: Detect and report errors early.</li>
 <li>Avoid returning null: It leads to null pointer exceptions. Use objects or default values instead.</li>
-</ol>
+</ul>
 <p>Bad Example:</p>
 <pre><code class="language-cpp">if (user == null) {
     // Ignore the issue
@@ -467,28 +572,20 @@ updateLegacyData();
     throw new IllegalArgumentException(&quot;User cannot be null&quot;);
 }
 </code></pre>
-<ol>
-<li>
-<p>Formatting:
-Consistent formatting improves readability:</p>
-</li>
-<li>
-<p>Follow an agreed-upon style guide.</p>
-</li>
+<h3 id="formatting">Formatting:</h3>
+<p>Consistent formatting improves readability:</p>
+<ul>
+<li>Follow an agreed-upon style guide.</li>
 <li>Use proper indentation and spacing.</li>
 <li>Group related code together logically.</li>
-<li>
-<p>Maintain vertical and horizontal alignment to prevent clutter.</p>
-</li>
-<li>
-<p>Objects and Data Structures</p>
-</li>
-<li>
-<p>Objects should hide implementation details and expose only essential methods:</p>
-</li>
+<li>Maintain vertical and horizontal alignment to prevent clutter.</li>
+</ul>
+<h3 id="objects-and-data-structures">Objects and Data Structures</h3>
+<ul>
+<li>Objects should hide implementation details and expose only essential methods:</li>
 <li>Encapsulation: Use private fields and public getters/setters.</li>
 <li>Avoid getters/setters overuse: Instead, expose meaningful behavior.</li>
-</ol>
+</ul>
 <p>Bad Example:</p>
 <pre><code class="language-cpp">user.setFirstName(&quot;John&quot;);
 user.setLastName(&quot;Doe&quot;);
@@ -496,24 +593,20 @@ user.setLastName(&quot;Doe&quot;);
 <p>Good Example:</p>
 <pre><code class="language-cpp">user.updateName(&quot;John Doe&quot;);
 </code></pre>
-<ol>
-<li>Unit Testing</li>
+<h3 id="unit-testing">Unit Testing</h3>
+<ul>
 <li>Testing is a cornerstone of clean code. Good tests:</li>
 <li>Follow the FIRST principles (Fast, Independent, Repeatable, Self-Validating, and Timely).</li>
 <li>Cover edge cases and boundary conditions.</li>
-<li>
-<p>Help detect bugs early and enforce code reliability.</p>
-</li>
-<li>
-<p>Classes</p>
-</li>
-<li>
-<p>Keep classes small and focused: Each class should represent a single responsibility.</p>
-</li>
+<li>Help detect bugs early and enforce code reliability.</li>
+</ul>
+<h3 id="classes">Classes</h3>
+<ul>
+<li>Keep classes small and focused: Each class should represent a single responsibility.</li>
 <li>Avoid God Classes: Classes that try to do too much.</li>
 <li>Follow SOLID principles for maintainable design.</li>
-</ol>
-<h3 id="case-studies-cleaning-code">Case Studies: Cleaning Code</h3>
+</ul>
+<h2 id="case-studies-cleaning-code">Case Studies: Cleaning Code</h2>
 <p>The book provides practical examples of messy code and walks through the process of cleaning it. These case studies emphasize:
 - Refactoring for simplicity.
 - Removing unnecessary code.
@@ -526,8 +619,8 @@ user.setLastName(&quot;Doe&quot;);
 <li>Removing redundant comments and making variable names more meaningful.</li>
 </ul>
 <h3 id="advanced-topics">Advanced Topics</h3>
-<ol>
-<li>Boundaries</li>
+<h4 id="boundaries">Boundaries</h4>
+<ul>
 <li>
 <p>Managing boundaries involves:</p>
 </li>
@@ -536,26 +629,28 @@ user.setLastName(&quot;Doe&quot;);
 </li>
 <li>Using clear interfaces for communication.</li>
 <li>Avoiding tight coupling, which makes code harder to modify.</li>
-<li>Concurrency</li>
-<li>
-<p>Writing concurrent code is tricky. Martin advises:</p>
+</ul>
+<h4 id="concurrency">Concurrency</h4>
 <ul>
+<li>Writing concurrent code is tricky. Martin advises:<ul>
 <li>Keep data sharing between threads minimal.</li>
 <li>Use synchronization mechanisms cautiously.</li>
 <li>Write tests to simulate multithreaded environments.</li>
-<li>Refactoring</li>
+</ul>
+</li>
+</ul>
+<h4 id="refactoring">Refactoring</h4>
+<ul>
 <li>
 <p>Refactoring is a disciplined approach to improving code without changing its behavior. Key strategies include:</p>
-</li>
-<li>
-<p>Consolidating duplicate logic.</p>
-</li>
+<ul>
+<li>Consolidating duplicate logic.</li>
 <li>Extracting methods or classes.</li>
 <li>Renaming components for clarity.</li>
 </ul>
 </li>
-</ol>
-<h3 id="clean-code-practices">Clean Code Practices</h3>
+</ul>
+<h2 id="clean-code-practices">Clean Code Practices</h2>
 <ol>
 <li>
 <p>The Boy Scout Rule: 
@@ -574,14 +669,14 @@ Engage in peer reviews to ensure code quality and share knowledge within the tea
 Treat clean code as a continuous journey, not a one-time effort. Regularly revisit and refine your code.</p>
 </li>
 </ol>
-<h3 id="the-clean-code-mindset">The Clean Code Mindset</h3>
+<h2 id="the-clean-code-mindset">The Clean Code Mindset</h2>
 <p>Martin stresses that clean code is as much about mindset as it is about practices:</p>
 <ul>
 <li>Strive for craftsmanship and take pride in your work.</li>
 <li>Advocate for simplicity and clarity, even under deadlines.</li>
 <li>Understand that writing clean code may take more effort initially, but it pays off in the long run through easier maintenance and fewer bugs.</li>
 </ul>
-<h3 id="conclusion">Conclusion</h3>
+<h2 id="conclusion">Conclusion</h2>
 <p>"Clean Code" is not just a technical manual but also a philosophy. It encourages developers to think critically about how they write and structure their code. The principles in the book aim to make codebases easier to understand, debug, and extend—qualities that are essential in agile and collaborative environments.</p>
 <p>By adopting the practices outlined in "Clean Code," developers can create software that stands the test of time, benefiting their teams and the broader community.</p>
 

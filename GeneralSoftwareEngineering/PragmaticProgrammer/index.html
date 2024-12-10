@@ -293,6 +293,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-pragmatic-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Pragmatic Philosophy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -301,6 +316,99 @@
       Key concepts:
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Key concepts:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-pragmatic-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Pragmatic Approach
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Pragmatic Approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dry-dont-repeat-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      DRY (Don’t Repeat Yourself)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orthogonality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orthogonality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prototypes-and-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prototypes and Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-basic-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Basic Tools:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pragmatic-paranoia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pragmatic Paranoia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bend-or-break" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bend, or Break
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while-you-are-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      While You Are Coding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#before-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before the Project
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -338,10 +446,10 @@
 
 
 <h1 id="the-pragmatic-programmer">The Pragmatic Programmer</h1>
-<h4 id="introduction">Introduction</h4>
+<h2 id="introduction">Introduction</h2>
 <p>"The Pragmatic Programmer" is a foundational book for software developers, emphasizing the mindset and habits necessary for effective, long-term growth in the field. Hunt and Thomas provide actionable advice on coding, debugging, project management, and professional development. The book is structured into a series of short, insightful lessons, organized into 8 major chapters.</p>
-<ol>
-<li>A Pragmatic Philosophy</li>
+<h3 id="a-pragmatic-philosophy">A Pragmatic Philosophy</h3>
+<ul>
 <li>
 <p>The authors introduce the pragmatic programmer mindset:</p>
 </li>
@@ -350,49 +458,35 @@
 </li>
 <li>Continuously learn: Stay curious and adaptable.</li>
 <li>Think critically: Avoid assumptions and validate ideas with evidence.</li>
-</ol>
-<h4 id="key-concepts">Key concepts:</h4>
+</ul>
+<h2 id="key-concepts">Key concepts:</h2>
 <ul>
 <li>The Broken Window Theory: Fix small issues (e.g., bad code, tech debt) early to prevent a cascading decline in quality.</li>
-<li>
-<p>Be a catalyst for change: Suggest improvements and help your team embrace better practices.</p>
-</li>
-<li>
-<p>A Pragmatic Approach</p>
-</li>
-<li>
-<p>DRY (Don’t Repeat Yourself)
-Repetition leads to inconsistencies and harder maintenance. Abstract common patterns and reuse code effectively.</p>
-<pre><code>Bad Example:
-```python
-def calculate_area(length, width):
-    return length * width
+<li>Be a catalyst for change: Suggest improvements and help your team embrace better practices.</li>
+</ul>
+<h3 id="a-pragmatic-approach">A Pragmatic Approach</h3>
+<h4 id="dry-dont-repeat-yourself">DRY (Don’t Repeat Yourself)</h4>
+<p>Repetition leads to inconsistencies and harder maintenance. Abstract common patterns and reuse code effectively.</p>
+<p>Bad Example:</p>
+<pre><code class="language-python">def calculate_area(length, width):
+   return length * width
 
 # Duplicated logic for square
 def calculate_square_area(side):
-    return side * side
-```
-
-Good Example:
-```python
-def calculate_area(*dimensions):
-    return dimensions[0] * dimensions[1] if len(dimensions) &gt; 1 else dimensions[0] ** 2
-```
+   return side * side
 </code></pre>
-<ol>
-<li>Orthogonality
-   Ensure components are independent:</li>
-<li>Change in one module should not affect others.</li>
-<li>Independent modules enable parallel development, easier testing, and debugging.</li>
-</ol>
-</li>
-<li>
-<p>Prototypes and Feedback
-   Build quick prototypes to validate ideas and reduce risks. Prototyping helps clarify requirements and find flaws early.</p>
-</li>
-<li>
-<p>The Basic Tools:</p>
-</li>
+<p>Good Example:</p>
+<pre><code class="language-python">def calculate_area(*dimensions):
+   return dimensions[0] * dimensions[1] if len(dimensions) &gt; 1 else dimensions[0] ** 2
+</code></pre>
+<h4 id="orthogonality">Orthogonality</h4>
+<p>Ensure components are independent:
+   - Change in one module should not affect others.
+   - Independent modules enable parallel development, easier testing, and debugging.</p>
+<h4 id="prototypes-and-feedback">Prototypes and Feedback</h4>
+<p>Build quick prototypes to validate ideas and reduce risks. Prototyping helps clarify requirements and find flaws early.</p>
+<h4 id="the-basic-tools">The Basic Tools:</h4>
+<ul>
 <li>
 <p>Master Your Tools</p>
 <ul>
@@ -400,22 +494,19 @@ def calculate_area(*dimensions):
 </ul>
 </li>
 <li>
-<p>Automation:</p>
-</li>
-<li>Automate repetitive tasks:<ul>
+<p>Automation: Automate repetitive tasks</p>
+<ul>
 <li>Use scripts for deployments, testing, and build processes.</li>
 <li>Automation minimizes human errors and accelerates workflows.</li>
 </ul>
 </li>
-<li>
-<p>Text Manipulation:</p>
-<ul>
+<li>Text Manipulation:<ul>
 <li>Learn text manipulation tools like grep, awk, sed, or regular expressions. These skills are invaluable for analyzing logs or data transformations.</li>
 </ul>
 </li>
-<li>
-<p>Pragmatic Paranoia</p>
-</li>
+</ul>
+<h4 id="pragmatic-paranoia">Pragmatic Paranoia</h4>
+<ol>
 <li>Design by Contract
         - Specify preconditions, postconditions, and invariants for functions and modules.
         - Define explicit expectations to avoid hidden bugs.</li>
@@ -437,9 +528,9 @@ def calculate_area(*dimensions):
     Automate backups and ensure they’re recoverable.</li>
 </ul>
 </li>
-<li>
-<p>Bend, or Break</p>
-</li>
+</ol>
+<h4 id="bend-or-break">Bend, or Break</h4>
+<ol>
 <li>Flexible Code: Write adaptable code that can evolve:</li>
 <li>Use abstractions like interfaces and polymorphism.
 Avoid hardcoding assumptions.</li>
@@ -448,34 +539,27 @@ Use dependency injection and clear interfaces.</li>
 <li>
 <p>Refactoring:
    Refactor code frequently to improve its structure without altering functionality:</p>
-</li>
-<li>
-<p>Remove redundancy.</p>
-</li>
+<ul>
+<li>Remove redundancy.</li>
 <li>Simplify complex logic.</li>
-<li>
-<p>Improve readability.</p>
+<li>Improve readability.</li>
+</ul>
 </li>
-<li>
-<p>While You Are Coding</p>
-</li>
-<li>
-<p>Say What You Mean
-   Use expressive and meaningful names for variables, functions, and classes. Your code should be self-documenting.</p>
-<pre><code>Bad Example:
-
-```python
-def m(a, b):
-    return a * b
-```
-Good Example:
-
-```python
-def calculate_area(length, width):
-    return length * width
-```
+</ol>
+<h4 id="while-you-are-coding">While You Are Coding</h4>
+<ol>
+<li>Say What You Mean
+Use expressive and meaningful names for variables, functions, and classes. Your code should be self-documenting.</li>
+</ol>
+<p>Bad Example:</p>
+<pre><code class="language-python">def m(a, b):
+   return a * b
 </code></pre>
-</li>
+<p>Good Example:</p>
+<pre><code class="language-python">def calculate_area(length, width):
+   return length * width
+</code></pre>
+<ol>
 <li>
 <p>Avoid Programming by Coincidence
    Don’t rely on assumptions or accidental behaviors in your code. Write code that explicitly achieves the desired results.</p>
@@ -488,63 +572,55 @@ def calculate_area(length, width):
 <li>Use logging and debugging tools to pinpoint issues.</li>
 </ul>
 </li>
-<li>
-<p>Before the Project</p>
-</li>
-<li>
-<p>Requirements Matter</p>
-<ul>
-<li>
-<p>Clarify requirements early and avoid assumptions. Ask questions like:</p>
-<ul>
+</ol>
+<h4 id="before-the-project">Before the Project</h4>
+<ol>
+<li>Requirements Matter<ul>
+<li>Clarify requirements early and avoid assumptions. Ask questions like:<ul>
 <li>Who are the stakeholders?</li>
 <li>What are the business goals?</li>
 <li>What constraints exist?</li>
-<li>Validate Assumptions</li>
-<li>Prove assumptions with prototypes or small experiments. Don’t build an entire system on shaky foundations.</li>
 </ul>
 </li>
+</ul>
+</li>
+<li>
+<p>Validate Assumptions</p>
+<ul>
+<li>Prove assumptions with prototypes or small experiments. Don’t build an entire system on shaky foundations.</li>
 </ul>
 </li>
 <li>
 <p>Pragmatic Estimation</p>
-</li>
-<li>
-<p>Estimate projects realistically:</p>
 <ul>
+<li>Estimate projects realistically:<ul>
 <li>Break down tasks into smaller units.</li>
 <li>Factor in uncertainties.</li>
 <li>Communicate assumptions to stakeholders.</li>
 </ul>
 </li>
-<li>
-<p>Pragmatic Projects</p>
+</ul>
 </li>
-<li>
-<p>Pragmatic Teams</p>
-<ul>
-<li>
-<p>Effective teamwork involves:</p>
-<ul>
+<li>Pragmatic Projects<ol>
+<li>Pragmatic Teams</li>
+<li>Effective teamwork involves: <ul>
 <li>Clear communication: Use simple language to avoid misunderstandings.</li>
 <li>Collective code ownership: Everyone contributes to and understands the codebase.</li>
 <li>Continuous learning: Share knowledge and mentor others.</li>
+</ul>
+</li>
 <li>Continuous Integration<ul>
 <li>Integrate code changes frequently and automate testing to catch issues early. Continuous integration ensures the codebase is always in a deployable state.</li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Pragmatic Starter Kit</p>
-<ul>
+<li>Pragmatic Starter Kit<ul>
 <li>Essential practices for every project:</li>
 <li>Version control: Track every change.</li>
 <li>Issue tracking: Log and prioritize tasks and bugs.</li>
 <li>Testing: Write automated unit, integration, and end-to-end tests.</li>
 </ul>
+</li>
+</ol>
 </li>
 <li>Pragmatic Programming Techniques<ul>
 <li>Tracer Bullets: Implement end-to-end functionality early to guide development and test architecture.</li>
@@ -552,14 +628,14 @@ def calculate_area(length, width):
 <li>Domain Languages: Create domain-specific languages to simplify communication and development.</li>
 </ul>
 </li>
-</ul>
-<h3 id="top-takeaways-from-the-pragmatic-programmer">Top Takeaways from The Pragmatic Programmer</h3>
+</ol>
+<h2 id="top-takeaways-from-the-pragmatic-programmer">Top Takeaways from The Pragmatic Programmer</h2>
 <p>Invest in Your Knowledge Portfolio Continuously learn new technologies, languages, and practices. Stay curious and adaptable.</p>
 <p>Communicate Clearly Be precise with requirements and documentation. Avoid ambiguity to reduce misunderstandings.</p>
 <p>Iterative Development Break projects into small, manageable pieces. Ship features incrementally and iterate based on feedback.</p>
 <p>Be a Pragmatic Problem-Solver Embrace practical solutions over theoretical perfection. Balance trade-offs to meet deadlines while maintaining quality.</p>
 <p>Take Responsibility Own your decisions, from code quality to project outcomes. Always strive to deliver value.</p>
-<h3 id="conclusion">Conclusion</h3>
+<h2 id="conclusion">Conclusion</h2>
 <p>"The Pragmatic Programmer" is more than a programming book; it’s a guide to becoming a better software professional. The lessons focus on practical, real-world strategies for solving problems, working in teams, and building robust software systems. Its timeless principles are as relevant today as when the book was first published.</p>
 <p>By adopting the pragmatic programmer mindset, developers can create high-quality software, collaborate effectively, and continuously grow in their careers.</p>
 
