@@ -1,0 +1,8 @@
+site_name: Learn with Shashank
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Developer Learning: developer_learning.md
+  - Generic Software Engineering: generic_software_engineering.md
+  - Miscellaneous: miscellaneous.md
