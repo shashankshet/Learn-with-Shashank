@@ -1,0 +1,837 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+    
+    
+      
+        <title>System Design Interview - Learn with Shashank</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#system-design-interview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learn with Shashank" class="md-header__button md-logo" aria-label="Learn with Shashank" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learn with Shashank
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              System Design Interview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learn with Shashank" class="md-nav__button md-logo" aria-label="Learn with Shashank" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Learn with Shashank
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generic_software_engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic Software Engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../miscellaneous/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-themes-and-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Themes and Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Themes and Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-system-design-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. System Design Fundamentals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-structured-approach-to-system-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Structured Approach to System Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-patterns-and-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Patterns and Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Patterns and Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Load Balancing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-database-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Database Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-messaging-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Messaging Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-content-delivery-networks-cdns" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Content Delivery Networks (CDNs)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case Studies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Case Studies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-designing-a-url-shortener" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Designing a URL Shortener
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-designing-a-tinyurl-with-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Designing a TinyURL with Scalability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-designing-a-social-media-news-feed" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Designing a Social Media News Feed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-designing-a-messaging-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Designing a Messaging System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Topics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-book-is-valuable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Book is Valuable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="system-design-interview">System Design Interview</h1>
+<h3 id="overview"><strong>Overview</strong></h3>
+<p><em>System Design Interview – An Insider’s Guide</em> by Alex Xu is structured as a practical guide to help software engineers prepare for system design interviews. It demystifies complex concepts through real-world examples, explaining how to approach designing large-scale distributed systems systematically. The book emphasizes trade-offs, scalability, reliability, and maintainability.</p>
+<h3 id="core-themes-and-concepts"><strong>Core Themes and Concepts</strong></h3>
+<h4 id="1-system-design-fundamentals"><strong>1. System Design Fundamentals</strong></h4>
+<p>The book begins by introducing fundamental principles that form the backbone of any system design:</p>
+<ul>
+<li>
+<p><strong>Scalability:</strong> Building systems to handle increasing loads.</p>
+</li>
+<li>
+<p><strong>Reliability:</strong> Ensuring system availability even under failure conditions.</p>
+</li>
+<li>
+<p><strong>Maintainability:</strong> Designing systems for ease of updates and debugging.</p>
+</li>
+<li>
+<p><strong>Performance:</strong> Optimizing latency and throughput.</p>
+</li>
+<li>
+<p><strong>Cost-effectiveness:</strong> Balancing design choices against infrastructure costs.</p>
+</li>
+</ul>
+<h4 id="2-structured-approach-to-system-design"><strong>2. Structured Approach to System Design</strong></h4>
+<p>A key strength of the book is its systematic framework for tackling system design problems:</p>
+<ol>
+<li>
+<p><strong>Understand the requirements:</strong> Carefully clarify functional and non-functional requirements.</p>
+<ul>
+<li>
+<p>Functional: Features the system must support.</p>
+</li>
+<li>
+<p>Non-functional: Constraints like latency, throughput, consistency, and reliability.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Establish the scale:</strong> Estimate the expected load, such as queries per second (QPS), storage, or traffic.</p>
+</li>
+<li>
+<p><strong>Define high-level architecture:</strong> Break the system into major components, such as APIs, databases, and caching layers.</p>
+</li>
+<li>
+<p><strong>Design core components:</strong> Dive deeper into the design of key elements.</p>
+</li>
+<li>
+<p><strong>Address bottlenecks:</strong> Identify and solve scalability and reliability challenges.</p>
+</li>
+</ol>
+<p>This structure ensures a logical flow while solving open-ended system design problems.</p>
+<h3 id="design-patterns-and-concepts"><strong>Design Patterns and Concepts</strong></h3>
+<h4 id="1-load-balancing"><strong>1. Load Balancing</strong></h4>
+<ul>
+<li>
+<p>Load balancers distribute incoming traffic to multiple servers to ensure even workload distribution.</p>
+</li>
+<li>
+<p>Key techniques:</p>
+<ul>
+<li>
+<p><strong>DNS load balancing:</strong> Simple but lacks dynamic adjustment.</p>
+</li>
+<li>
+<p><strong>Reverse proxies:</strong> Flexible and common in modern architectures.</p>
+</li>
+<li>
+<p><strong>Health checks:</strong> Ensure failed servers are removed from the load balancer’s pool.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Example: Designing a system for millions of concurrent users often requires multiple layers of load balancing.</p>
+</li>
+</ul>
+<h4 id="2-database-design"><strong>2. Database Design</strong></h4>
+<ul>
+<li>
+<p><strong>Relational vs. NoSQL:</strong> Use relational databases for ACID compliance and NoSQL for horizontal scalability.</p>
+</li>
+<li>
+<p><strong>Sharding:</strong> Splitting data across multiple databases to handle high-scale workloads.</p>
+<ul>
+<li>Techniques: Range-based, hash-based, or geo-based sharding.</li>
+</ul>
+</li>
+<li>
+<p><strong>Replication:</strong> Ensures high availability by duplicating data across servers.</p>
+<ul>
+<li>
+<p><strong>Master-slave replication:</strong> Reads are served by replicas; writes go to the master.</p>
+</li>
+<li>
+<p><strong>Leaderless replication:</strong> Used in systems like DynamoDB for availability.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-caching"><strong>3. Caching</strong></h4>
+<ul>
+<li>
+<p>Caching is a vital performance optimization strategy.</p>
+</li>
+<li>
+<p>Types:</p>
+<ul>
+<li>
+<p><strong>Client-side caching:</strong> Stored on users' devices.</p>
+</li>
+<li>
+<p><strong>Server-side caching:</strong> Common solutions like Memcached or Redis.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Cache invalidation:</strong> Critical for maintaining consistency between the cache and the database.</p>
+</li>
+</ul>
+<h4 id="4-messaging-systems"><strong>4. Messaging Systems</strong></h4>
+<ul>
+<li>
+<p>Messaging systems, like Kafka or RabbitMQ, decouple components and handle asynchronous communication.</p>
+</li>
+<li>
+<p>Common use cases:</p>
+<ul>
+<li>
+<p>Data pipelines for analytics.</p>
+</li>
+<li>
+<p>Event-driven architectures.</p>
+</li>
+<li>
+<p>Buffering high-throughput write requests to the database.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-content-delivery-networks-cdns"><strong>5. Content Delivery Networks (CDNs)</strong></h4>
+<ul>
+<li>
+<p>CDNs cache static content geographically closer to users to reduce latency and bandwidth usage.</p>
+</li>
+<li>
+<p>Often used in systems like video streaming platforms or image-heavy websites.</p>
+</li>
+</ul>
+<h3 id="case-studies"><strong>Case Studies</strong></h3>
+<h4 id="1-designing-a-url-shortener"><strong>1. Designing a URL Shortener</strong></h4>
+<ul>
+<li>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>
+<p>Generate short URLs.</p>
+</li>
+<li>
+<p>Support redirection from short URLs to original ones.</p>
+</li>
+<li>
+<p>Handle 100M new URLs/day and 1000 requests/second.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Design:</strong></p>
+<ul>
+<li>
+<p>Use a hash function to generate short URLs.</p>
+</li>
+<li>
+<p>Store mappings in a database (e.g., NoSQL for scalability).</p>
+</li>
+<li>
+<p>Introduce caching to speed up redirection.</p>
+</li>
+<li>
+<p>Handle collisions in hash-based generation.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-designing-a-tinyurl-with-scalability"><strong>2. Designing a TinyURL with Scalability</strong></h4>
+<ul>
+<li>
+<p>Additional considerations include:</p>
+<ul>
+<li>
+<p>Database partitioning (sharding by hash prefix).</p>
+</li>
+<li>
+<p>Distributed ID generation (e.g., Snowflake algorithm) to ensure uniqueness across multiple servers.</p>
+</li>
+<li>
+<p>CDN for serving static resources.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-designing-a-social-media-news-feed"><strong>3. Designing a Social Media News Feed</strong></h4>
+<ul>
+<li>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>
+<p>Personalized feed for each user.</p>
+</li>
+<li>
+<p>High throughput for millions of users.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Design:</strong></p>
+<ul>
+<li>
+<p><strong>Push-based model:</strong> Pre-compute feeds for each user as posts are created.</p>
+</li>
+<li>
+<p><strong>Pull-based model:</strong> Generate feeds on demand.</p>
+</li>
+<li>
+<p>Optimize storage with denormalization and use distributed caching for fast retrieval.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-designing-a-messaging-system"><strong>4. Designing a Messaging System</strong></h4>
+<ul>
+<li>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>
+<p>One-to-one and group messaging.</p>
+</li>
+<li>
+<p>Deliver messages in real-time.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Design:</strong></p>
+<ul>
+<li>
+<p>Use a <strong>publish-subscribe model</strong> for real-time delivery.</p>
+</li>
+<li>
+<p>Ensure durability by persisting messages to disk.</p>
+</li>
+<li>
+<p>Handle offline users by queuing messages.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="advanced-topics"><strong>Advanced Topics</strong></h3>
+<p>The book goes beyond basic designs to address more complex challenges:</p>
+<ul>
+<li>
+<p><strong>Consistency vs. Availability (CAP Theorem):</strong></p>
+<ul>
+<li>
+<p>Understand trade-offs in distributed systems.</p>
+</li>
+<li>
+<p>Use eventual consistency models for systems prioritizing availability.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Database indexing:</strong> Improves read performance but adds write overhead.</p>
+</li>
+<li>
+<p><strong>Rate limiting:</strong> Throttle requests to prevent abuse and protect backends.</p>
+</li>
+</ul>
+<h3 id="key-takeaways"><strong>Key Takeaways</strong></h3>
+<ol>
+<li>
+<p><strong>Trade-offs are central:</strong> Every design decision involves a trade-off (e.g., latency vs. consistency, cost vs. scalability).</p>
+</li>
+<li>
+<p><strong>High-level thinking matters:</strong> Interviews often test how well you can reason about complex systems, not just low-level implementation details.</p>
+</li>
+<li>
+<p><strong>Practice is essential:</strong> Work through real-world scenarios to build confidence and intuition.</p>
+</li>
+</ol>
+<h3 id="why-this-book-is-valuable"><strong>Why This Book is Valuable</strong></h3>
+<ul>
+<li>
+<p><strong>Clarity:</strong> Concepts are explained in simple language with visual diagrams.</p>
+</li>
+<li>
+<p><strong>Practical Examples:</strong> Real-world cases like URL shorteners and newsfeeds offer hands-on learning.</p>
+</li>
+<li>
+<p><strong>Interview-focused:</strong> Aimed at helping candidates succeed in system design interviews.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
