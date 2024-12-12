@@ -6,4 +6,4 @@ This section covers key concepts and best practices in software engineering. Her
 ### Book Summary
 - [Clean code](GeneralSoftwareEngineering/CleanCode.md): Best practices for writing readable, maintainable, and efficient code.
 - [Pragmatic Programmer](GeneralSoftwareEngineering/PragmaticProgrammer.md): Essential advice and principles for becoming a more effective and adaptable developer.
-- - [System Design Interview](GeneralSoftwareEngineering/SystemDesingInterview.md):  Best practices for designing scalable, reliable, and maintainable systems.
+- [System Design Interview](GeneralSoftwareEngineering/SystemDesingInterview.md):  Best practices for designing scalable, reliable, and maintainable systems.
