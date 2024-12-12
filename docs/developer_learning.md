@@ -1,9 +1,7 @@
 # Developer Learnings
 
-This section covers key concepts and best practices in software engineering. Here, you’ll find detailed notes and insights on foundational books and methodologies that every developer should be familiar with.
 
-### Book Summary:
-- [System Design Interview](DeveloperLearning/SystemDesingInterview.md):  Best practices for designing scalable, reliable, and maintainable systems.
+This section will feature interesting blog posts and concise concepts on key software engineering practices and methodologies. I will share valuable insights from foundational books and various topics that every developer should explore and learn from.
 
 ### Interesting Blogs
 
