@@ -1,0 +1,6 @@
+mkdocs>=1.4.2
+mkdocs-material>=9.0.0
+mkdocs-redirects
+mkdocs-mermaid2-plugin
+mkdocs-awesome-pages-plugin
+pymdown-extensions>=9.0
