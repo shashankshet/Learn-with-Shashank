@@ -1,4 +1,6 @@
 site_name: Learn with Shashank
+site_url: https://shashankshet.github.io/learn-with-shashank/
+use_directory_urls: true
 theme:
   name: material
 nav:
