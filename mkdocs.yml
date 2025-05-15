@@ -7,4 +7,5 @@ nav:
   - Home: index.md
   - Developer Learning: developer_learning.md
   - Generic Software Engineering: generic_software_engineering.md
+  - Data Structures and Algorithms: data_structures_and_algorithms.md
   - Miscellaneous: miscellaneous.md
