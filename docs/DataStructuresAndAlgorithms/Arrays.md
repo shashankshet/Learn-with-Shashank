@@ -48,27 +48,95 @@ def merge(nums1, m, nums2, n):
         p2 -= 1
         p -= 1
 ```
-🧪 Example Walkthrough:
-Input:
 
-ini
-Copy
-Edit
-nums1 = [1,2,3,0,0,0], m = 3
-nums2 = [2,5,6], n = 3
+2. LeetCode 27: Remove Element.
+
+🧠 Problem Understanding
+You are given:
+
+An integer array nums
+An integer val
+
+Your task:
+Remove all instances of val from the array nums, in-place
+Return the count of elements that are not equal to val
+
+🔸 Constraints:
+
+You don’t need to maintain the order of elements
+Do it in-place (no extra space)
+
+✅ What You Need to Do:
+Modify nums in-place such that:
+The first k elements are the ones not equal to val
+Return k, the number of elements not equal to val
+⚠️ The contents beyond the first k elements don't matter.
+
+🔍 Strategy (Two Pointer Approach):
+Use a write pointer (i) that keeps track of where to write the next non-val element.
+
 Steps:
+Initialize i = 0
+Loop through each element num in nums
+If num != val:
+Write num at index i → nums[i] = num
+Increment i
+At the end:
+First i elements of nums are the result
+Return i
 
-Start with p1 = 2, p2 = 2, p = 5
+🧑‍💻 Python Code:
+```
+def removeElement(nums, val):
+    i = 0  # write pointer
 
-Compare 3 and 6: place 6 at nums1[5]
+    for num in nums:
+        if num != val:
+            nums[i] = num
+            i += 1
 
-Compare 3 and 5: place 5 at nums1[4]
+    return i
+```
+3.LeetCode 26: Remove Duplicates from Sorted Array.
 
-Compare 3 and 2: place 3 at nums1[3]
+🧠 Problem Summary:
+Given:
+A sorted integer array nums (non-decreasing order).
 
-Compare 2 and 2: place 2 at nums1[2]
+Your task:
+Remove duplicates in-place such that each unique element appears only once.
+Keep the relative order of the elements the same.
+Return the count k of unique elements.
+The first k elements in nums should be the unique values in order.
 
-Copy 2 from nums2[0] to nums1[1]
+🔍 Key Insight:
+Because the array is already sorted, all duplicates will be next to each other.
+We can use the two-pointer technique:
+One pointer (i) keeps track of the last unique element
+Another pointer (j) scans through the array
 
-Final result: [1,2,2,3,5,6]
+✅ Strategy (Two Pointers):
+If the array is empty, return 0.
+Start with i = 0 (position to write next unique value).
+Loop j from 1 to end of the array:
+If nums[j] != nums[i], it means a new unique element is found.
+Move i one step ahead
+Copy nums[j] to nums[i]
+At the end, return i + 1 (count of unique elements)
 
+
+```
+
+def removeDuplicates(nums):
+    if not nums:
+        return 0
+
+    i = 0  # pointer to last unique element
+
+    for j in range(1, len(nums)):
+        if nums[j] != nums[i]:
+            i += 1
+            nums[i] = nums[j]  # place unique element at the correct spot
+
+    return i + 1
+```
