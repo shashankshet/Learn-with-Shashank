@@ -1,6 +1,6 @@
 # Arrays and strings
 
-1. LeetCode 88: Merge Sorted Array step by step.
+**LeetCode 88: Merge Sorted Array step by step.**
 
 🧠 Problem Understanding:
 You're given:
@@ -49,7 +49,7 @@ def merge(nums1, m, nums2, n):
         p -= 1
 ```
 
-2. LeetCode 27: Remove Element.
+**LeetCode 27: Remove Element.**
 
 🧠 Problem Understanding
 You are given:
@@ -97,7 +97,7 @@ def removeElement(nums, val):
 
     return i
 ```
-3.LeetCode 26: Remove Duplicates from Sorted Array.
+**LeetCode 26: Remove Duplicates from Sorted Array.**
 
 🧠 Problem Summary:
 Given:
@@ -139,4 +139,43 @@ def removeDuplicates(nums):
             nums[i] = nums[j]  # place unique element at the correct spot
 
     return i + 1
+```
+
+**Remove Duplicates from Sorted Array" problem — this is sometimes referred to as “Remove Duplicates II” on LeetCode.**
+
+🧠 Problem Summary:
+Given:
+
+A sorted array nums (non-decreasing order).
+Your task:
+Modify the array in-place so that each unique element appears at most twice.
+Keep the relative order the same.
+Return k, the number of valid elements in the modified array (first k elements).
+
+🔍 Key Idea:
+Since the array is sorted:
+All duplicates are grouped together.
+You are allowed up to 2 of each element.
+We’ll use the two-pointer technique again:
+Pointer i is the write pointer (where to write the next valid element).
+Pointer j scans through the array.
+
+✅ Strategy (Two Pointers with a Rule):
+Initialize i = 0 (start writing from the beginning).
+Loop through the array with j:
+If i < 2, always write nums[j] (first two elements are always allowed).
+If nums[j] != nums[i - 2], then write nums[j] at nums[i].
+Why i - 2? Because we’re allowing at most 2 of the same number.
+
+🧑‍💻 Python Code:
+```
+def removeDuplicates(nums):
+    i = 0  # write pointer
+
+    for num in nums:
+        if i < 2 or num != nums[i - 2]:
+            nums[i] = num
+            i += 1
+
+    return i
 ```
