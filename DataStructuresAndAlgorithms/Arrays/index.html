@@ -1,0 +1,570 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://shashankshet.github.io/learn-with-shashank/DataStructuresAndAlgorithms/Arrays/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Arrays and strings - Learn with Shashank</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arrays-and-strings" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learn with Shashank" class="md-header__button md-logo" aria-label="Learn with Shashank" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learn with Shashank
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arrays and strings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learn with Shashank" class="md-nav__button md-logo" aria-label="Learn with Shashank" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Learn with Shashank
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generic_software_engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic Software Engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structures_and_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Structures and Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../miscellaneous/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="arrays-and-strings">Arrays and strings</h1>
+<p><strong>LeetCode 88: Merge Sorted Array step by step.</strong></p>
+<p>🧠 Problem Understanding:
+You're given:
+Two sorted arrays nums1 and nums2.
+nums1 has extra space at the end to hold all elements from nums2.
+The actual number of meaningful elements in nums1 is m.
+The number of elements in nums2 is n.</p>
+<p>Your task is to merge nums2 into nums1 in-place, so that nums1 becomes a fully sorted array.</p>
+<p>🔍 Key Insight:
+Since nums1 has extra space at the end, we can fill from the back instead of the front. That way, we don’t overwrite any elements we haven’t checked yet.</p>
+<p>✅ Strategy:
+Use three pointers:
+p1 = m - 1: points to the last element in the actual nums1 values.
+p2 = n - 1: points to the last element in nums2.
+p = m + n - 1: points to the last position in nums1.</p>
+<p>Compare elements from the back of nums1 and nums2, and place the larger one at position p.
+Decrease p and whichever pointer (p1 or p2) you just used.
+At the end, if any elements are left in nums2, copy them (this only happens if they are all smaller than nums1's smallest).</p>
+<p>🧑‍💻 Code (Python):</p>
+<pre><code>
+def merge(nums1, m, nums2, n):
+    p1 = m - 1  # last element of nums1 (non-zero part)
+    p2 = n - 1  # last element of nums2
+    p = m + n - 1  # last position in nums1
+
+    # Compare from the end
+    while p1 &gt;= 0 and p2 &gt;= 0:
+        if nums1[p1] &gt; nums2[p2]:
+            nums1[p] = nums1[p1]
+            p1 -= 1
+        else:
+            nums1[p] = nums2[p2]
+            p2 -= 1
+        p -= 1
+
+    # If any elements are left in nums2
+    while p2 &gt;= 0:
+        nums1[p] = nums2[p2]
+        p2 -= 1
+        p -= 1
+</code></pre>
+<p><strong>LeetCode 27: Remove Element.</strong></p>
+<p>🧠 Problem Understanding
+You are given:</p>
+<p>An integer array nums
+An integer val</p>
+<p>Your task:
+Remove all instances of val from the array nums, in-place
+Return the count of elements that are not equal to val</p>
+<p>🔸 Constraints:</p>
+<p>You don’t need to maintain the order of elements
+Do it in-place (no extra space)</p>
+<p>✅ What You Need to Do:
+Modify nums in-place such that:
+The first k elements are the ones not equal to val
+Return k, the number of elements not equal to val
+⚠️ The contents beyond the first k elements don't matter.</p>
+<p>🔍 Strategy (Two Pointer Approach):
+Use a write pointer (i) that keeps track of where to write the next non-val element.</p>
+<p>Steps:
+Initialize i = 0
+Loop through each element num in nums
+If num != val:
+Write num at index i → nums[i] = num
+Increment i
+At the end:
+First i elements of nums are the result
+Return i</p>
+<p>🧑‍💻 Python Code:</p>
+<pre><code>def removeElement(nums, val):
+    i = 0  # write pointer
+
+    for num in nums:
+        if num != val:
+            nums[i] = num
+            i += 1
+
+    return i
+</code></pre>
+<p><strong>LeetCode 26: Remove Duplicates from Sorted Array.</strong></p>
+<p>🧠 Problem Summary:
+Given:
+A sorted integer array nums (non-decreasing order).</p>
+<p>Your task:
+Remove duplicates in-place such that each unique element appears only once.
+Keep the relative order of the elements the same.
+Return the count k of unique elements.
+The first k elements in nums should be the unique values in order.</p>
+<p>🔍 Key Insight:
+Because the array is already sorted, all duplicates will be next to each other.
+We can use the two-pointer technique:
+One pointer (i) keeps track of the last unique element
+Another pointer (j) scans through the array</p>
+<p>✅ Strategy (Two Pointers):
+If the array is empty, return 0.
+Start with i = 0 (position to write next unique value).
+Loop j from 1 to end of the array:
+If nums[j] != nums[i], it means a new unique element is found.
+Move i one step ahead
+Copy nums[j] to nums[i]
+At the end, return i + 1 (count of unique elements)</p>
+<pre><code>
+def removeDuplicates(nums):
+    if not nums:
+        return 0
+
+    i = 0  # pointer to last unique element
+
+    for j in range(1, len(nums)):
+        if nums[j] != nums[i]:
+            i += 1
+            nums[i] = nums[j]  # place unique element at the correct spot
+
+    return i + 1
+</code></pre>
+<p><strong>Remove Duplicates from Sorted Array" problem — this is sometimes referred to as “Remove Duplicates II” on LeetCode.</strong></p>
+<p>🧠 Problem Summary:
+Given:</p>
+<p>A sorted array nums (non-decreasing order).
+Your task:
+Modify the array in-place so that each unique element appears at most twice.
+Keep the relative order the same.
+Return k, the number of valid elements in the modified array (first k elements).</p>
+<p>🔍 Key Idea:
+Since the array is sorted:
+All duplicates are grouped together.
+You are allowed up to 2 of each element.
+We’ll use the two-pointer technique again:
+Pointer i is the write pointer (where to write the next valid element).
+Pointer j scans through the array.</p>
+<p>✅ Strategy (Two Pointers with a Rule):
+Initialize i = 0 (start writing from the beginning).
+Loop through the array with j:
+If i &lt; 2, always write nums[j] (first two elements are always allowed).
+If nums[j] != nums[i - 2], then write nums[j] at nums[i].
+Why i - 2? Because we’re allowing at most 2 of the same number.</p>
+<p>🧑‍💻 Python Code:</p>
+<pre><code>def removeDuplicates(nums):
+    i = 0  # write pointer
+
+    for num in nums:
+        if i &lt; 2 or num != nums[i - 2]:
+            nums[i] = num
+            i += 1
+
+    return i
+</code></pre>
+<p><strong>Given an integer array nums, return the majority element — the element that appears more than n//2 times.
+You are guaranteed that a solution always exists.</strong></p>
+<p>🧠 Your Code:
+python</p>
+<pre><code>class Solution:
+    def majorityElement(self, nums: List[int]) -&gt; int:
+        counts = {}
+        max_count = len(nums)//2
+
+        for num in nums:
+            if num in counts:
+                counts[num] += 1
+            else:
+                counts[num] = 1
+
+            if counts[num] &gt; max_count:
+                return num
+</code></pre>
+<p>🔍 Explanation:
+Step 1: Initialize dictionary and threshold
+python
+Copy
+Edit
+counts = {}
+max_count = len(nums) // 2
+counts is a dictionary to store the frequency of each number.</p>
+<p>max_count is the majority threshold. A number must appear more than this to be considered the majority element.</p>
+<p>Step 2: Loop through each number
+python
+Copy
+Edit
+for num in nums:
+Iterate through each element in the nums array.</p>
+<p>Step 3: Count frequency of each number
+python
+Copy
+Edit
+if num in counts:
+    counts[num] += 1
+else:
+    counts[num] = 1
+If the number already exists in the dictionary, increment its count.</p>
+<p>Otherwise, initialize its count to 1.</p>
+<p>Step 4: Check if it's the majority
+python
+Copy
+Edit
+if counts[num] &gt; max_count:
+    return num
+After updating the count, check if it crossed the majority threshold.</p>
+<p>If yes, return it immediately (early exit — very efficient).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

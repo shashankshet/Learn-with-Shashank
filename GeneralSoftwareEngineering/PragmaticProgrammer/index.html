@@ -1,0 +1,716 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://shashankshet.github.io/learn-with-shashank/GeneralSoftwareEngineering/PragmaticProgrammer/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>The Pragmatic Programmer - Learn with Shashank</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-pragmatic-programmer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learn with Shashank" class="md-header__button md-logo" aria-label="Learn with Shashank" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learn with Shashank
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Pragmatic Programmer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learn with Shashank" class="md-nav__button md-logo" aria-label="Learn with Shashank" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Learn with Shashank
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generic_software_engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generic Software Engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structures_and_algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Structures and Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../miscellaneous/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-pragmatic-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Pragmatic Philosophy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key concepts:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key concepts:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-pragmatic-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Pragmatic Approach
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Pragmatic Approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dry-dont-repeat-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      DRY (Don’t Repeat Yourself)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orthogonality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orthogonality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prototypes-and-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prototypes and Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-basic-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Basic Tools:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pragmatic-paranoia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pragmatic Paranoia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bend-or-break" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bend, or Break
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while-you-are-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      While You Are Coding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#before-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before the Project
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-takeaways-from-the-pragmatic-programmer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Top Takeaways from The Pragmatic Programmer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="the-pragmatic-programmer">The Pragmatic Programmer</h1>
+<h2 id="introduction">Introduction</h2>
+<p>"The Pragmatic Programmer" is a foundational book for software developers, emphasizing the mindset and habits necessary for effective, long-term growth in the field. Hunt and Thomas provide actionable advice on coding, debugging, project management, and professional development. The book is structured into a series of short, insightful lessons, organized into 8 major chapters.</p>
+<h3 id="a-pragmatic-philosophy">A Pragmatic Philosophy</h3>
+<ul>
+<li>
+<p>The authors introduce the pragmatic programmer mindset:</p>
+</li>
+<li>
+<p>Be responsible: Own your decisions, code quality, and the impact on the project.</p>
+</li>
+<li>Continuously learn: Stay curious and adaptable.</li>
+<li>Think critically: Avoid assumptions and validate ideas with evidence.</li>
+</ul>
+<h2 id="key-concepts">Key concepts:</h2>
+<ul>
+<li>The Broken Window Theory: Fix small issues (e.g., bad code, tech debt) early to prevent a cascading decline in quality.</li>
+<li>Be a catalyst for change: Suggest improvements and help your team embrace better practices.</li>
+</ul>
+<h3 id="a-pragmatic-approach">A Pragmatic Approach</h3>
+<h4 id="dry-dont-repeat-yourself">DRY (Don’t Repeat Yourself)</h4>
+<p>Repetition leads to inconsistencies and harder maintenance. Abstract common patterns and reuse code effectively.</p>
+<p>Bad Example:</p>
+<pre><code class="language-python">def calculate_area(length, width):
+   return length * width
+
+# Duplicated logic for square
+def calculate_square_area(side):
+   return side * side
+</code></pre>
+<p>Good Example:</p>
+<pre><code class="language-python">def calculate_area(*dimensions):
+   return dimensions[0] * dimensions[1] if len(dimensions) &gt; 1 else dimensions[0] ** 2
+</code></pre>
+<h4 id="orthogonality">Orthogonality</h4>
+<p>Ensure components are independent:
+   - Change in one module should not affect others.
+   - Independent modules enable parallel development, easier testing, and debugging.</p>
+<h4 id="prototypes-and-feedback">Prototypes and Feedback</h4>
+<p>Build quick prototypes to validate ideas and reduce risks. Prototyping helps clarify requirements and find flaws early.</p>
+<h4 id="the-basic-tools">The Basic Tools:</h4>
+<ul>
+<li>
+<p>Master Your Tools</p>
+<ul>
+<li>Developers should master their editors, debuggers, version control systems, and build tools. Efficient use of tools saves time and reduces frustration.</li>
+</ul>
+</li>
+<li>
+<p>Automation: Automate repetitive tasks</p>
+<ul>
+<li>Use scripts for deployments, testing, and build processes.</li>
+<li>Automation minimizes human errors and accelerates workflows.</li>
+</ul>
+</li>
+<li>Text Manipulation:<ul>
+<li>Learn text manipulation tools like grep, awk, sed, or regular expressions. These skills are invaluable for analyzing logs or data transformations.</li>
+</ul>
+</li>
+</ul>
+<h4 id="pragmatic-paranoia">Pragmatic Paranoia</h4>
+<ol>
+<li>Design by Contract
+        - Specify preconditions, postconditions, and invariants for functions and modules.
+        - Define explicit expectations to avoid hidden bugs.</li>
+<li>
+<p>Dead Programs Tell No Lies
+        - Fail fast! If a program detects an issue, terminate with a clear error message instead of trying to proceed.</p>
+</li>
+<li>
+<p>Assertive Programming</p>
+<ul>
+<li>Use assertions to validate assumptions and catch bugs early during development.</li>
+</ul>
+</li>
+<li>
+<p>Backup and Recovery</p>
+<ul>
+<li>Always anticipate failures:
+    Test disaster recovery procedures.
+    Automate backups and ensure they’re recoverable.</li>
+</ul>
+</li>
+</ol>
+<h4 id="bend-or-break">Bend, or Break</h4>
+<ol>
+<li>Flexible Code: Write adaptable code that can evolve:</li>
+<li>Use abstractions like interfaces and polymorphism.
+Avoid hardcoding assumptions.</li>
+<li>Decoupling: Minimize dependencies between components: Decoupled systems are easier to test, modify, and scale.
+Use dependency injection and clear interfaces.</li>
+<li>
+<p>Refactoring:
+   Refactor code frequently to improve its structure without altering functionality:</p>
+<ul>
+<li>Remove redundancy.</li>
+<li>Simplify complex logic.</li>
+<li>Improve readability.</li>
+</ul>
+</li>
+</ol>
+<h4 id="while-you-are-coding">While You Are Coding</h4>
+<ol>
+<li>Say What You Mean
+Use expressive and meaningful names for variables, functions, and classes. Your code should be self-documenting.</li>
+</ol>
+<p>Bad Example:</p>
+<pre><code class="language-python">def m(a, b):
+   return a * b
+</code></pre>
+<p>Good Example:</p>
+<pre><code class="language-python">def calculate_area(length, width):
+   return length * width
+</code></pre>
+<ol>
+<li>
+<p>Avoid Programming by Coincidence
+   Don’t rely on assumptions or accidental behaviors in your code. Write code that explicitly achieves the desired results.</p>
+</li>
+<li>
+<p>Refuse the Temptation to Guess
+   When debugging, don’t make random guesses about the problem. Instead:</p>
+<ul>
+<li>Gather evidence.</li>
+<li>Use logging and debugging tools to pinpoint issues.</li>
+</ul>
+</li>
+</ol>
+<h4 id="before-the-project">Before the Project</h4>
+<ol>
+<li>Requirements Matter<ul>
+<li>Clarify requirements early and avoid assumptions. Ask questions like:<ul>
+<li>Who are the stakeholders?</li>
+<li>What are the business goals?</li>
+<li>What constraints exist?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Validate Assumptions</p>
+<ul>
+<li>Prove assumptions with prototypes or small experiments. Don’t build an entire system on shaky foundations.</li>
+</ul>
+</li>
+<li>
+<p>Pragmatic Estimation</p>
+<ul>
+<li>Estimate projects realistically:<ul>
+<li>Break down tasks into smaller units.</li>
+<li>Factor in uncertainties.</li>
+<li>Communicate assumptions to stakeholders.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Pragmatic Projects<ol>
+<li>Pragmatic Teams</li>
+<li>Effective teamwork involves: <ul>
+<li>Clear communication: Use simple language to avoid misunderstandings.</li>
+<li>Collective code ownership: Everyone contributes to and understands the codebase.</li>
+<li>Continuous learning: Share knowledge and mentor others.</li>
+</ul>
+</li>
+<li>Continuous Integration<ul>
+<li>Integrate code changes frequently and automate testing to catch issues early. Continuous integration ensures the codebase is always in a deployable state.</li>
+</ul>
+</li>
+<li>Pragmatic Starter Kit<ul>
+<li>Essential practices for every project:</li>
+<li>Version control: Track every change.</li>
+<li>Issue tracking: Log and prioritize tasks and bugs.</li>
+<li>Testing: Write automated unit, integration, and end-to-end tests.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Pragmatic Programming Techniques<ul>
+<li>Tracer Bullets: Implement end-to-end functionality early to guide development and test architecture.</li>
+<li>Spikes: Write short, disposable code to explore and solve specific problems.</li>
+<li>Domain Languages: Create domain-specific languages to simplify communication and development.</li>
+</ul>
+</li>
+</ol>
+<h2 id="top-takeaways-from-the-pragmatic-programmer">Top Takeaways from The Pragmatic Programmer</h2>
+<p>Invest in Your Knowledge Portfolio Continuously learn new technologies, languages, and practices. Stay curious and adaptable.</p>
+<p>Communicate Clearly Be precise with requirements and documentation. Avoid ambiguity to reduce misunderstandings.</p>
+<p>Iterative Development Break projects into small, manageable pieces. Ship features incrementally and iterate based on feedback.</p>
+<p>Be a Pragmatic Problem-Solver Embrace practical solutions over theoretical perfection. Balance trade-offs to meet deadlines while maintaining quality.</p>
+<p>Take Responsibility Own your decisions, from code quality to project outcomes. Always strive to deliver value.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>"The Pragmatic Programmer" is more than a programming book; it’s a guide to becoming a better software professional. The lessons focus on practical, real-world strategies for solving problems, working in teams, and building robust software systems. Its timeless principles are as relevant today as when the book was first published.</p>
+<p>By adopting the pragmatic programmer mindset, developers can create high-quality software, collaborate effectively, and continuously grow in their careers.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
