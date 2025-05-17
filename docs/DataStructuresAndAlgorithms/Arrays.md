@@ -179,3 +179,65 @@ def removeDuplicates(nums):
 
     return i
 ```
+
+
+**Given an integer array nums, return the majority element — the element that appears more than n//2 times.
+You are guaranteed that a solution always exists.**
+
+🧠 Your Code:
+python
+```
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        counts = {}
+        max_count = len(nums)//2
+
+        for num in nums:
+            if num in counts:
+                counts[num] += 1
+            else:
+                counts[num] = 1
+
+            if counts[num] > max_count:
+                return num
+```
+🔍 Explanation:
+Step 1: Initialize dictionary and threshold
+python
+Copy
+Edit
+counts = {}
+max_count = len(nums) // 2
+counts is a dictionary to store the frequency of each number.
+
+max_count is the majority threshold. A number must appear more than this to be considered the majority element.
+
+Step 2: Loop through each number
+python
+Copy
+Edit
+for num in nums:
+Iterate through each element in the nums array.
+
+Step 3: Count frequency of each number
+python
+Copy
+Edit
+if num in counts:
+    counts[num] += 1
+else:
+    counts[num] = 1
+If the number already exists in the dictionary, increment its count.
+
+Otherwise, initialize its count to 1.
+
+Step 4: Check if it's the majority
+python
+Copy
+Edit
+if counts[num] > max_count:
+    return num
+After updating the count, check if it crossed the majority threshold.
+
+If yes, return it immediately (early exit — very efficient).
+
