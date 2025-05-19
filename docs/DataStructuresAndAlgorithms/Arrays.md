@@ -291,3 +291,48 @@ class Solution:
 Time: O(n)
 
 Space: O(1) (in-place)
+
+***Leetcode 121: Best Time to Buy and Sell Stoc***
+✅ Optimal Solution (O(n) Time, O(1) Space):
+🎯 Key Idea:
+Track the lowest price so far (best day to buy).
+
+At each day, calculate the potential profit if we sold on that day.
+Keep updating the maximum profit.
+
+👇 Step-by-Step Walkthrough:
+python
+
+prices = [7,1,5,3,6,4]
+
+min_price = ∞
+max_profit = 0
+
+Day 0: price = 7 → min_price = 7
+Day 1: price = 1 → min_price = 1
+Day 2: price = 5 → profit = 5 - 1 = 4 → max_profit = 4
+Day 3: price = 3 → profit = 3 - 1 = 2 → max_profit = 4
+Day 4: price = 6 → profit = 6 - 1 = 5 → max_profit = 5 ✅
+Day 5: price = 4 → profit = 4 - 1 = 3 → max_profit = 5
+
+✅ Python Code:
+python
+```
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        min_price = float('inf')  # Start with a very high price
+        max_profit = 0
+
+        for price in prices:
+            if price < min_price:
+                min_price = price  # Update the lowest price so far
+            elif price - min_price > max_profit:
+                max_profit = price - min_price  # Update max profit if better
+
+        return max_profit
+```
+✅ Time & Space Complexity:
+Time: O(n) → We loop through the prices only once.
+
+Space: O(1) → No extra space used.
+
