@@ -336,3 +336,52 @@ Time: O(n) → We loop through the prices only once.
 
 Space: O(1) → No extra space used.
 
+
+***Leetcode 122. Best Time to Buy and Sell Stock II***
+
+🧠 Problem Summary
+You are given a list of stock prices, where prices[i] is the price on day i.
+You can buy and sell as many times as you want (even on the same day), but you must sell before you buy again (you can't hold more than one share at a time).
+
+Goal: Maximize your profit.
+
+✅ Key Insight
+This problem is about taking every opportunity to make profit, no matter how small.
+👉 If the price tomorrow is higher than today, then buy today and sell tomorrow.
+For example:
+
+plaintext
+
+prices = [7,1,5,3,6,4]
+          ↑ ↓ ↑ ↓ ↑ ↓
+Opportunities to make profit:
+
+Buy at 1, sell at 5 → profit = 4
+Buy at 3, sell at 6 → profit = 3
+Total profit = 4 + 3 = 7
+
+💡 Greedy Approach (Simple)
+python
+```
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        profit = 0
+        
+        for i in range(1, len(prices)):
+            if prices[i] > prices[i - 1]:
+                profit += prices[i] - prices[i - 1]
+        
+        return profit
+```
+🧪 Explanation
+We loop from day 1 to end.
+
+If today’s price (prices[i]) is greater than yesterday’s price (prices[i - 1]), it means we could’ve bought yesterday and sold today.
+So, we add the profit: prices[i] - prices[i - 1].
+This effectively adds up all positive profit differences — which is exactly what we want.
+
+⏱️ Time and Space Complexity
+Time: O(n) — One pass through the list.
+
+Space: O(1) — Constant space used.
+
