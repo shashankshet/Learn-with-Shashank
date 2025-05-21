@@ -385,3 +385,47 @@ Time: O(n) — One pass through the list.
 
 Space: O(1) — Constant space used.
 
+***LeetCode 55 – Jump Game.***
+Greedy Observation
+While scanning from left to right, it is enough to know the furthest position we can reach so far.
+
+Why?
+Suppose we are at index i.
+If the current furthest reachable index (far) is ≥ i, we have already proven we can stand on i.
+From i, the best we can do is extend far to max(far, i + nums[i]).
+
+If at any time far < i, we hit a “gap” we cannot cross → return false immediately.
+
+If we finish the scan with far ≥ last_index, then we can reach the end → true.
+
+This one-pass greedy works because earlier indices can only jump forward; once we’ve computed the global maximum reach up to position i, no later step can improve reachability of any earlier gap we already failed.
+
+4 Algorithm in Plain English
+python
+Copy
+Edit
+far = 0                                # furthest index we can reach so far
+for i from 0 to n-1:
+    if i > far:                       # gap!
+        return False
+    far = max(far, i + nums[i])       # extend reach
+return True                            # far never dropped behind i
+5 Python Implementation
+python
+Copy
+Edit
+class Solution:
+    def canJump(self, nums: list[int]) -> bool:
+        far = 0
+        for i, step in enumerate(nums):
+            if i > far:                       # cannot even stand on i
+                return False
+            far = max(far, i + step)          # best we can do from here
+            if far >= len(nums) - 1:          # early exit: already at/over end
+                return True
+        return True
+Complexity
+Value
+Time	O(n) – one linear scan
+Space	O(1) – just the integer far
+
