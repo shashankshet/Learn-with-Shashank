@@ -429,3 +429,77 @@ Value
 Time	O(n) – one linear scan
 Space	O(1) – just the integer far
 
+
+
+***LeetCode 45 – Jump Game II in a way that makes it super intuitive to understand and solve.***
+
+🧠 Problem Understanding
+Given:
+
+An array nums, where nums[i] is the maximum jump length you can take from index i.
+
+Goal:
+
+Reach the last index (nums[n - 1]) using the minimum number of jumps.
+
+Constraints:
+
+You can reach the end (i.e., it's guaranteed).
+
+From nums[i], you can jump to any nums[i + j] where 0 < j ≤ nums[i].
+
+🏃 Real-World Analogy
+Think of it like this:
+
+You're standing on stones in a river, and each stone tells you how many stones forward you can jump. Your goal is to cross the river in as few jumps as possible.
+
+✅ Example
+nums = [2, 3, 1, 1, 4]
+Start at index 0:
+
+You can jump to index 1 or index 2 (nums[0] = 2)
+
+What's the best place to jump to?
+
+Pick the one that gives you the furthest reach in the next move (greedy choice).
+
+From index 1 (which has value 3), you can go to indices 2, 3, or 4.
+
+So jump from 0 → 1, then 1 → 4.
+
+Total jumps = 2
+
+💡 Intuition
+We use a greedy level-based BFS approach.
+Each “jump” is like one level of BFS traversal.
+
+Track:
+currentEnd: the end of the current jump range.
+
+farthest: the farthest index we can reach in the next jump.
+
+Every time we reach currentEnd, we:
+
+Increment jumps
+
+Update currentEnd = farthest
+
+✅ Greedy Algorithm
+python
+```
+class Solution:
+    def jump(self, nums: list[int]) -> int:
+        jumps = 0
+        currentEnd = 0
+        farthest = 0
+
+        for i in range(len(nums) - 1):  # no need to jump from last index
+            farthest = max(farthest, i + nums[i])
+            if i == currentEnd:
+                jumps += 1
+                currentEnd = farthest
+
+        return jumps
+
+```
+
