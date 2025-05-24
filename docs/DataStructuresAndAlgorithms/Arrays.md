@@ -402,18 +402,17 @@ This one-pass greedy works because earlier indices can only jump forward; once w
 
 4 Algorithm in Plain English
 python
-Copy
-Edit
+```
 far = 0                                # furthest index we can reach so far
 for i from 0 to n-1:
     if i > far:                       # gap!
         return False
     far = max(far, i + nums[i])       # extend reach
 return True                            # far never dropped behind i
-5 Python Implementation
+```
+Python Implementation
 python
-Copy
-Edit
+```
 class Solution:
     def canJump(self, nums: list[int]) -> bool:
         far = 0
@@ -424,6 +423,7 @@ class Solution:
             if far >= len(nums) - 1:          # early exit: already at/over end
                 return True
         return True
+```
 Complexity
 Value
 Time	O(n) – one linear scan
@@ -485,7 +485,7 @@ Increment jumps
 Update currentEnd = farthest
 
 ✅ Greedy Algorithm
-python
+
 ```
 class Solution:
     def jump(self, nums: list[int]) -> int:
