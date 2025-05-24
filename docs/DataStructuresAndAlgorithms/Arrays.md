@@ -503,3 +503,56 @@ class Solution:
 
 ```
 
+
+ ***H-Index problem in a very simple and clear way.***
+
+🔍 What is H-Index?
+The H-Index is a number that measures both:
+Productivity (number of papers), and
+Impact (number of citations).
+
+🧠 Definition:
+A researcher has an index h if h of their n papers have at least h citations each, and the rest of the papers have no more than h citations.
+
+✅ Let's break the example down:
+Input: citations = [3, 0, 6, 1, 5]
+
+This means:
+Paper 1 has 3 citations
+Paper 2 has 0
+Paper 3 has 6
+Paper 4 has 1
+Paper 5 has 5
+
+Now, we want to find the largest number h such that at least h papers have ≥ h citations.
+
+🚀 Step-by-step Dry Run
+Sort the citations in descending order:
+
+
+[6, 5, 3, 1, 0]
+Now go one by one and check:
+
+At index 0: 6 citations → at least 1 paper has ≥ 1 citation ✅
+
+At index 1: 5 citations → at least 2 papers have ≥ 2 citations ✅
+
+At index 2: 3 citations → at least 3 papers have ≥ 3 citations ✅
+
+At index 3: 1 citation → at least 4 papers have ≥ 4 citations ❌ (only 3 papers do)
+
+✅ So the highest h that satisfies the condition is 3.
+
+✅ Final Code (Python)
+```
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        citations.sort(reverse=True)
+        h = 0
+        for i, c in enumerate(citations):
+            if c >= i + 1:
+                h += 1
+            else:
+                break
+        return h
+S```
